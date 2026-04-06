@@ -1,25 +1,25 @@
-# AWS-Request-Flow-Step-by-step
+# 1. AWS-Request-Flow-Step-by-step
 
-# # User Sends Request
+# 2. User Sends Request
 https://myapp.com
 
-# # DNS Resolution
+# 3. DNS Resolution
 
-# Domain is resolved using Amazon Web Services Route 53
-# Returns:
-    # load Balancer
+ Domain is resolved using Amazon Web Services Route 53
+   Returns:
+     load Balancer
 
-# # CDN Layer (Optional)
- # If enabled, request goes to:
+# 4.CDN Layer (Optional)
+  If enabled, request goes to:
 
 CloudFront (nearest edge location)
 
 ✔ Static content served faster
 ✔ Reduces load on backend
 
-# # Load Balancer (ALB)
+# 5.Load Balancer (ALB)
 
- # Request hits:
+   Request hits:
 
 Application Load Balancer
 
@@ -27,18 +27,18 @@ Application Load Balancer
 ✔ Performs health checks
 ✔ Routes request (path-based)
 
-# # Backend Servers (EC2)
+# 6. Backend Servers (EC2)
 
-# ALB forwards request to:
+   ALB forwards request to:
 
 Amazon Web Services EC2 instances
 
 ✔ Running inside Auto Scaling Group
 ✔ Handles application logic
 
-# # Application Processing
+# 7. Application Processing
 
-# Inside EC2:
+ Inside EC2:
 
 Web server (Nginx / Apache)
 App server (Java / Node / Python)
@@ -49,7 +49,7 @@ Authentication
 Business logic
 API handling
 
-# # Database Layer
+# 8.Database Layer
 
 App communicates with:
 
@@ -58,19 +58,19 @@ or DynamoDB
 
 ✔ Fetch/store data
 
-# # Storage Layer (Optional)
+# 9.Storage Layer (Optional)
 
-# Uses:
+ Uses:
 
 Amazon Web Services S3
 
 ✔ Images, files, backups
 
-# # Response Travels Back
+# 10.Response Travels Back
 
 EC2 → ALB → CloudFront → User
 
-# # Browser Displays Output
+# 11.Browser Displays Output
 
  User sees:
 
@@ -78,7 +78,7 @@ Web page
 API response
 Data
 
-# # Full Flow (Easy Diagram)
+# 12.Full Flow (Easy Diagram)
 
         User
  ↓
@@ -105,7 +105,7 @@ EC2	App crashed
 DB	Connection failure
 App	Logic error
 
-# # Interview Answer (Perfect)
-  # “When a user sends a request, it is first resolved by Route 53 DNS to the load balancer. The request may go through CloudFront for caching, then reaches the Application Load Balancer, which forwards it to EC2 instances. The application processes the request, interacts with the database if needed, and sends the response back through the same path to the user.”
+# Interview Answer (Perfect)
+   “When a user sends a request, it is first resolved by Route 53 DNS to the load balancer. The request may go through CloudFront for caching, then reaches the Application Load Balancer, which forwards it to EC2 instances. The application processes the request, interacts with the database if needed, and sends the response back through the same path to the user.”
 
-          <img width="1536" height="1024" alt="image" src="https://github.com/user-attachments/assets/df49a6c5-8371-486d-a986-9bf72456747d" />
+         
